@@ -1,14 +1,10 @@
-# PHP Starter Overview
+WaterfallDemo
 
-The PHP Starter demonstrates a simple, reusable PHP web application.
+This is our teams demo: 
 
-## Run the app locally
 
-1. Download and extract [PHP][]
-2. Add the extracted directory to your PATH environment variable
-3. Download and extract the starter code from the Bluemix UI
-4. cd into the app directory
-5. Run `php -S localhost:8000` to start the app using the built-in development web server
-6. Access the running app in a browser at http://localhost:8000
+1. Have a GUI using whatever technology you've decided on
+2. Write data to a database
+3. Read data from the database and respond with some action
+4. Include a working test unit (whatever corresponds to JUnit in your case)
 
-[PHP]: http://php.net/downloads.php

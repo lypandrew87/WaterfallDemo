@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+
 public class DBConnection implements Serializable  {
 
 	@SuppressWarnings("serial")

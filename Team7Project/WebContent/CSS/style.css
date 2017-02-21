@@ -1,0 +1,319 @@
+td{
+	
+	font-size: 12px;
+}
+
+
+
+.onoffswitch {
+    position: relative; width: 90px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+    display: none;
+}
+
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 20px;
+}
+
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+    content: "User";
+    padding-left: 10px;
+    background-color: #34A7C1; color: #FFFFFF;
+}
+
+.onoffswitch-inner:after {
+    content: "Admin";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+
+.onoffswitch-switch {
+    display: block; width: 18px; margin: 6px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 56px;
+    border: 2px solid #999999; border-radius: 20px;
+    transition: all 0.3s ease-in 0s; 
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+
+
+
+body {
+    background: url(../Images/background.jpg) no-repeat center center fixed;
+	
+    background-size: cover;
+    margin-top : 175px;
+}
+.page-content{
+
+
+padding-top: 10px;
+}
+.logo:hover{
+  background-color : transparent;
+}
+.logo{
+  position: fixed;
+  top: 10px;
+  left: 30px;
+  z-index: 1;
+    color:red;
+    width: 60px;
+    height: 60px;
+}
+
+/*----- Table Formatting -----*/
+
+
+.table-heading {
+
+vertical-align: middle;
+font-weight: bold;
+text-align: center;
+ background-color: rgb(204, 204, 204);
+}
+.table-data{
+  vertical-align: top;"
+}
+
+.table-format{
+  text-align: left;
+   width: 100%;
+
+}
+
+.table-totals td{
+border-top:  solid;
+
+}
+
+
+
+/*----- Customer Profile -----*/
+.infobox{
+width:700px;
+font-size: 30px;
+padding-bottom: 200px;
+}
+
+
+.infobox td{
+
+  padding-top: 10px;
+}
+
+
+.hiddentext{
+  color: #0085ff;
+  font-weight: bold;
+font-size: 15px;
+display: none;
+}
+
+/*----- Feed Back -----*/
+.searchbox{
+width:700px;
+font-size: 30px;
+padding-bottom: 200px;
+}
+
+
+.searchbox td{
+
+  padding-top: 10px;
+}
+
+
+/*----- LogIn Page -----*/
+
+#login {
+
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+	padding-top: 40px;
+
+}
+#login  form{
+  margin: auto;
+    width: 60%;
+    padding: 10px;
+
+
+ border: solid;
+
+}
+#login-title{
+text-align: center;
+border: solid;
+
+}
+
+
+
+
+
+.clearfix:after {
+    display:block;
+	 text-decoration: none;
+    clear:both;
+}
+
+/*----- Menu Outline -----*/
+
+
+.menu-wrap {
+    width:100%;
+    box-shadow:0px 1px 3px rgba(0,0,0,0.2);
+
+    background:#3e3436;
+}
+
+.menu {
+  background-color: #f8f6f6;
+  padding-left: 100px;
+
+  position: fixed;
+        width: 2000px;
+        height: 75px;
+        z-index: 1;
+        top: 0;
+        left: 0;
+
+}
+
+.menu li {
+
+    margin:0px;
+    list-style:none;
+
+    font-family:'Ek Mukta';
+}
+  .menuLable{
+
+ text-decoration: none;
+transition:all linear 0.15s;
+    color: blue;
+	 padding:10px 30px;
+    display:inline-block;
+    text-shadow:0px 1px 0px rgba(0,0,0,0.4);
+
+
+
+ }
+.menu a {
+
+	text-decoration: none;
+
+    transition:all linear 0.15s;
+    color: blue;
+}
+
+
+
+
+/*----- Top Level -----*/
+.menu > ul > li {
+  font-size: 24px;
+    float:left;
+    display:inline-block;
+    position:relative;
+
+}
+
+.menu > ul > li > a {
+    padding:10px 30px;
+    display:inline-block;
+    text-shadow:0px 1px 0px rgba(0,0,0,0.4);
+
+}
+
+.menu > ul > li:hover , .menu > ul > .current-item > a {
+    background: #878282;
+
+}
+
+
+/*----- Bottom Level -----*/
+.menu li:hover .sub-menu {
+    z-index:1;
+    opacity:1;
+}
+
+.sub-menu {
+    width:160%;
+    padding:10px 0px;
+    padding-right:15px;
+    position:absolute;
+
+    left:0px;
+    z-index:-1;
+    opacity:0;
+    transition:opacity linear 0.15s;
+    box-shadow:0px 2px 3px rgba(0,0,0,0.2);
+    background: #878282;
+}
+
+.sub-menu li {
+  width: 175px;
+    display:block;
+	text-decoration: none;
+
+    font-size:16px;
+}
+
+.sub-menu li a {
+    padding:10px 30px;
+    display:block;
+}
+
+.sub-menu li a:hover, .sub-menu .current-item a {
+    background:white;
+}
+
+/*----- Search -----*/
+
+.search{
+  padding: 10px;
+
+  background-color: grey;
+padding-top: 10px;
+ border: 1px solid black;
+ width: 475px;
+
+}
+
+.search-box{
+border: 10px;
+border-color: red;
+}
+
+/*-------- MISCELLANEOUS ----- */
+
+textarea {
+    resize: none;
+}

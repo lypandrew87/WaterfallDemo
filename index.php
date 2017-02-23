@@ -3,17 +3,13 @@
 <head>
   <meta charset="UTF-8">
 
+  <?php include("class_lib.php"); ?>
+
   <?php
-  error_reporting(E_ALL ^ E_DEPRECATED);
 
-  $username = "root";
-  $password = "";
-  $hostname = "localhost";
-  $database  = "amlyp"; 
 
-  $mysqli  = mysqli_connect($hostname, $username, $password,$database );
-  
-
+$connection = new connection(); 
+$mysqli = $connection->get_connection(); 
 
 if ($mysqli->connect_errno) {
     printf("Connect failed: %s\n", $mysqli->connect_error);

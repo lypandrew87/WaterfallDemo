@@ -1,7 +1,0 @@
-INDEX VERSION 1.3+C:\Users\Andrew\WaterfallDemo\WaterfallDemo\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-3822712532.index
-2724328382.index
-1240597473.index
-53848760.index
-2112513119.index
-1130858727.index

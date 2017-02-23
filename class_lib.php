@@ -1,5 +1,4 @@
 <?php 
-
 function get_connection() {
   $username = "root";
   $password = "";
@@ -17,6 +16,51 @@ function get_connection() {
 function execute_Query($connection , $query){
 
   return $connection->query($query);
+
+
+
+}
+
+
+if(isset($_POST['username']))
+{
+
+
+	login(get_connection(), $_POST['username'], $_POST['password']); 
+} 
+
+
+function login($connection, $username, $password){
+
+// To protect MySQL injection (more detail about MySQL injection)
+$myusername = stripslashes($username);
+$mypassword = stripslashes($password);
+
+$sql="SELECT * FROM users WHERE username='$username' and password='$password'";
+
+
+$result = execute_Query($connection, $sql); 
+
+// Mysql_num_row is counting table row
+
+// If result matched $myusername and $mypassword, table row must be 1 row
+if(mysqli_num_rows($result)==1){
+
+// Register $myusername, $mypassword and redirect to file "login_success.php"
+	$_SESSION["username"]=$username;
+	$_SESSION["password"]=$password;
+
+header("location:board.php");
+}
+else {
+	$_SESSION["success"]=false;
+	header("location:index.php");
+
+
+}
+
+
+
 
 
 

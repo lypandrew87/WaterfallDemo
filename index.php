@@ -1,186 +1,134 @@
 <!DOCTYPE html>
 <html >
 <head>
-  <meta charset="UTF-8">
+	<meta charset="UTF-8">
 
-  <?php include("class_lib.php"); ?>
+	<?php include("class_lib.php"); ?>
 
-  <?php
+	<?php
 
+	$mysqli = get_connection(); 
+	$query  = "SELECT * FROM scrumboard "; ?>
 
-$connection = new connection(); 
-$mysqli = $connection->get_connection(); 
-
-if ($mysqli->connect_errno) {
-    printf("Connect failed: %s\n", $mysqli->connect_error);
-    exit();
-}
-
-
-
-
- $query  = "SELECT * FROM scrumboard "; 
-
-
-
-
-
-  ?>
-  <title>Draggable Cards</title>
-  
-  
-  
-
-  
+	<title>Team Waterfall</title>
 </head>
 
 <body>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
 
-  <link href="http://materializecss.com/dist/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+	<link href="http://materializecss.com/dist/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
 
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="http://rawgit.com/sam-g-steel/MaterializeJS/master/libs/materialize/js/materialize.js"></script>
-  <script src="http://rawgit.com/sam-g-steel/MaterializeJS/master/js/MaterializeJS.js"></script>
-  <script src="http://julian.com/research/velocity/build/velocity.ui.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-
-    
-    <div class="row">
-	      <div class="col">
-
-	
-		   <?php
-
-       if ($result = $mysqli->query($query)) {
-
-    /* fetch associative array */
-    while ($row = $result->fetch_assoc()) {
-    
-
-		   
-
-
-    ?>
-      
-
-      <div id="Element01" class="card-panel blue darken-4 white-text" style="width: 20em; height: 20em;">
-          <b>Product Backlog</b>
-          <hr>  <?php   echo $row['productbacklog']; ?></hr>
-          <i><span id="i1"></span></i>
-
-       </div> 
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="http://rawgit.com/sam-g-steel/MaterializeJS/master/libs/materialize/js/materialize.js"></script>
+	<script src="http://rawgit.com/sam-g-steel/MaterializeJS/master/js/MaterializeJS.js"></script>
+	<script src="http://julian.com/research/velocity/build/velocity.ui.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
 
-    <?php
-  }
-}
-  ?>
-
-</div> 
+	<div class="row">
+		<div class="col">
 
 
-<div class="col">
+			<?php
 
-  <?php
-    if ($result = $mysqli->query($query)) {
+			$result = execute_Query($mysqli, $query); 
+			while ($row = $result->fetch_assoc()) {
 
-    /* fetch associative array */
-    while ($row = $result->fetch_assoc()) {
-    
-
-       
+				?>
 
 
+				<div id="Element01" class="card-panel blue darken-4 white-text" style="width: 20em; height: 20em;">
+					<b>Product Backlog</b>
+					<hr>  <?php   echo $row['productbacklog']; ?></hr>
+					<i><span id="i1"></span></i>
+
+				</div> 
+<?php
+			}
+
+			?>
+
+		</div> 
 
 
-    ?>
+		<div class="col">
 
-  <div id="Element01" class="card-panel red darken-4 white-text" style="width: 20em; height: 20em;">
-    <b>Sprint Backlog</b>
-    <hr><?php   echo $row['sprintbacklog']; ?></hr>
-    <i><span id="i1"></span></i>
-  </div> 
+			<?php
 
+			$result = execute_Query($mysqli, $query); 
 
- <?php
-  }}
+				while ($row = $result->fetch_assoc()) {
+					?>
 
-  ?>
-</div> 
-
-<div class = "col">
-
-   <?php
-
-       if ($result = $mysqli->query($query)) {
-
-    /* fetch associative array */
-    while ($row = $result->fetch_assoc()) {
-    
-    ?>
-<div id="Element01" class="card-panel purple darken-4 white-text" style="width: 20em; height: 20em;">
-  <b>Tasks</b>
-  <hr><?php   echo $row['tasks']; ?></hr>
-  <i><span id="i1"></span></i>
-</div> 
-
- <?php
-  }}
-
-  ?>
-
-</div>
-
-<div class = "col">
-
-   <?php
-
-       if ($result = $mysqli->query($query)) {
-
-    /* fetch associative array */
-    while ($row = $result->fetch_assoc()) {
-    
-
-		   
+					<div id="Element01" class="card-panel red darken-4 white-text" style="width: 20em; height: 20em;">
+						<b>Sprint Backlog</b>
+						<hr><?php   echo $row['sprintbacklog']; ?></hr>
+						<i><span id="i1"></span></i>
+					</div> 
 
 
-    ?>
+					<?php
+				}
 
-<div id="Element01" class="card-panel orange white-text" style="width: 20em; height: 20em;">
-  <b>Done</b>
-  <hr><?php   echo $row['done']; ?> </hr>
-  <i><span id="i1"></span></i>
-</div> 
+				?>
+			</div> 
 
- <?php
-  }}
+			<div class = "col">
 
-  ?>
-</div> 
+				<?php
 
-</div>
+						$result = execute_Query($mysqli, $query); 
+
+					while ($row = $result->fetch_assoc()) {
+
+						?>
+						<div id="Element01" class="card-panel purple darken-4 white-text" style="width: 20em; height: 20em;">
+							<b>Tasks</b>
+							<hr><?php   echo $row['tasks']; ?></hr>
+							<i><span id="i1"></span></i>
+						</div> 
+
+						<?php
+					}
+
+					?>
+
+				</div>
+
+				<div class = "col">
+
+					<?php
+
+				$result = execute_Query($mysqli, $query); 
+
+						while ($row = $result->fetch_assoc()) {
+
+					?>
+
+							<div id="Element01" class="card-panel orange white-text" style="width: 20em; height: 20em;">
+								<b>Done</b>
+								<hr><?php   echo $row['done']; ?> </hr>
+								<i><span id="i1"></span></i>
+							</div> 
+
+							<?php
+						}
+
+						?>
+					</div> 
+
+				</div>
 
 
+				<script>
+					$(".card-panel").velocity({ translateX: 0, translateY: 0 }, 500).velocity("transition.slideRightBigIn", { stagger: 250 });
 
+					$("#myElement").velocity("callout.tada").velocity("callout.tada");
+				</script>
 
+				<script src="js/index.js"></script>
 
-
-
-
-
-
-
-<script>
-  $(".card-panel").velocity({ translateX: 0, translateY: 0 }, 500).velocity("transition.slideRightBigIn", { stagger: 250 });
-
-  $("#myElement").velocity("callout.tada").velocity("callout.tada");
-</script>
-
-<script src="js/index.js"></script>
-
-</body>
-</html>
+			</body>
+			</html>

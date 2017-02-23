@@ -1,11 +1,4 @@
 <?php 
-	class connection {
-
-
-	
-
-
-
 
 function get_connection() {
   $username = "root";
@@ -16,8 +9,16 @@ function get_connection() {
   $mysqli  = mysqli_connect($hostname, $username, $password,$database );
 
   return $mysqli;
-		}
+		
 
  
 	}
+
+function execute_Query($connection , $query){
+
+  return $connection->query($query);
+
+
+
+}
 ?>

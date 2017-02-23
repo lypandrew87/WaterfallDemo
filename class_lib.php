@@ -47,13 +47,13 @@ $result = execute_Query($connection, $sql);
 if(mysqli_num_rows($result)==1){
 
 // Register $myusername, $mypassword and redirect to file "login_success.php"
+	 session_start();
 	$_SESSION["username"]=$username;
 	$_SESSION["password"]=$password;
 
-header("location:board.php");
+header("location:loginsuccessful.php");
 }
 else {
-	$_SESSION["success"]=false;
 	header("location:index.php");
 
 

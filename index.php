@@ -7,12 +7,8 @@
 
 	<?php
 
-	 if(!isset($_SESSION)) 
-    { 
-
-        session_start(); 
-    } 
-	$mysqli = get_connection(); 
+ 
+	//$mysqli = get_connection(); 
 	$query  = "SELECT * FROM scrumboard "; 
  	
  	?>
@@ -24,10 +20,10 @@
 
 
 <form method="post" action = "class_lib.php">
-  First name:<br>
+  Username:<br>
   <input type="text" name="username" ><br>
-  Last name:<br>
-  <input type="text" name="password" ><br><br>
+  Password:<br>
+  <input type="password" name="password" ><br><br>
 
   <input type="submit" value="Submit">
   <input type="reset">

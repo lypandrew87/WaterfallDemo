@@ -12,21 +12,9 @@ $result = execute_Query(get_connection(), $sql);
 
 if(mysqli_num_rows($result)==1){
 
-$true = "true"; 
-	$_SESSION["usernameError"]= $true;
 
-?>
-<p  style = "color: red"> This username has already been used </p>
+header("location:createAccount.php?uError=1");
 
-<form method="post" action = "createAccount.php">
-
-
-<input name = "uError" type = "hidden"> 
-	<input type="submit" value="Cancel">
-
-</form>
-
-<?php
 
 
 
@@ -54,8 +42,10 @@ $result = execute_Query($connection, $sql);
 
 
  session_start();
-	$_SESSION["username"]=$username;
-	$_SESSION["password"]=$password;
+	$_SESSION["firstname"]=$firstname;
+	$_SESSION["firstname"]=$lastname;
+	$_SESSION["firstname"]=$username;
+	$_SESSION["firstname"]=$password;
 header("location:loginsuccessful.php");
 
 

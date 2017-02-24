@@ -8,8 +8,13 @@
 
   <?php
    session_start(); 
+
+   $firstName =  $_SESSION["firstname"]; 
+   $lastName = $_SESSION["lastname"]; 
    $username =  $_SESSION["username"]; 
-   $password = $_SESSION["password"]; 
+   $password = $_SESSION["password"];
+
+   
  
   
   ?>
@@ -18,7 +23,7 @@
 
 <body>
 
-<p> Welcome: <?php echo $username; ?></p>
+<p> Welcome: <?php echo $firstName . " " . $lastName; ?></p>
 
 <form action ="index.php">
 

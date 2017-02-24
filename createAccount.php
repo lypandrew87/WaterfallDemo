@@ -1,22 +1,20 @@
 
 
-<?php 
-
- session_start();
 
 
+
+
+
+ <?php
 //This means that there was an incorrect password
-if(isset($_POST['uError'])){
-
+if(isset($_GET['uError'])){
 
 ?>
 <p  style = "color: red"> This username has already been used </p>
 
 <?php 
 }
-
 ?>
-
 
 
 <form method="post" action = "addNewAccount.php">

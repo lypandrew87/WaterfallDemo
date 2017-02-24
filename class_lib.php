@@ -49,16 +49,26 @@ if(mysqli_num_rows($result)==1){
 
 // Register $myusername, $mypassword and redirect to file "login_success.php"
 	 session_start();
+
+	while ($row = $result->fetch_assoc()) {
+
+    $firstname = $row['firstName'];
+    $lastname = $row['lastName'];
+
+
+}
+
+
 	$_SESSION["username"]=$username;
 	$_SESSION["password"]=$password;
+	$_SESSION["firstname"]=$firstname;
+	$_SESSION["lastname"]=$lastname;
 
 header("location:loginsuccessful.php");
 }
 else {
 
-	echo '<script language="javascript">';
-echo 'alert("message successfully sent")';
-echo '</script>';
+
 	header("location:index.php?uError=1");
 
 

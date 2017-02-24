@@ -22,6 +22,7 @@ function execute_Query($connection , $query){
 }
 
 
+
 if(isset($_POST['username']))
 {
 
@@ -54,7 +55,11 @@ if(mysqli_num_rows($result)==1){
 header("location:loginsuccessful.php");
 }
 else {
-	header("location:index.php");
+
+	echo '<script language="javascript">';
+echo 'alert("message successfully sent")';
+echo '</script>';
+	header("location:index.php?uError=1");
 
 
 }

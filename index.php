@@ -3,15 +3,20 @@
 <head>
 	<meta charset="UTF-8">
 
-	<?php include("class_lib.php"); ?>
+<?php
 
-	<?php
+if(isset($_GET['uError'])){
 
- 
-	//$mysqli = get_connection(); 
-	$query  = "SELECT * FROM scrumboard "; 
- 	
- 	?>
+
+?>
+<p  style = "color: red"> Incorrect username or password. </p>
+
+<?php 
+}
+
+?>
+
+
 	<title>Team Waterfall</title>
 </head>
 
@@ -28,7 +33,11 @@
   <input type="submit" value="Submit">
   <input type="reset">
 </form>
-	
+
+<br>
+<form  action="createAccount.php">
+    <button type="submit">Create Account</button>
+</form>	
 
 
 

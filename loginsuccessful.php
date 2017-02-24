@@ -20,7 +20,10 @@
 
 <p> Welcome: <?php echo $username; ?></p>
 
+<form action ="index.php">
 
+<input type ="submit" value = "Logout"> 
+</form>
 
 </body>
 </html>

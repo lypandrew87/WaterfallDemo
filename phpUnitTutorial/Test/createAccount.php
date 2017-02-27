@@ -17,21 +17,15 @@ if(isset($_GET['uError'])){
 ?>
 
 
-
-
 <form method="post" action = "addNewAccount.php">
   First Name:<br>
-  <input  type="text" name="firstname" required ><br>
+  <input type="text" name="firstname" ><br>
   Last Name:<br>
-  <input  type="text" name="lastname" required ><br><br>
+  <input type="text" name="lastname" ><br><br>
    Username:<br>
-  <input   type="text" name="username" required><br>
+  <input type="text" name="username" ><br>
   Password:<br>
-  <input  type="password" name="password" required ><br><br>
-  <input type="submit" value="Submit">
+  <input type="password" name="password" ><br><br>
+	<input type="submit" value="Submit">
   <input type="reset">
 </form>
-
-
-
-

@@ -1,5 +1,6 @@
 <?php 
 
+
 if(isset($_POST['firstname']))
 {
 
@@ -22,11 +23,16 @@ header("location:createAccount.php?uError=1");
 }else{
 
 
-	createAccount(get_connection(), $_POST['firstname'], $_POST['lastname'], $_POST['username'], $_POST['password']); 
+  createAccount(get_connection(), $_POST['firstname'], $_POST['lastname'], $_POST['username'], $_POST['password']); 
 
 }
 
 } 
+
+
+ class addNewAccount {
+
+
 
 function createAccount($connection, $firstname, $lastname, $username, $password){
 
@@ -36,15 +42,15 @@ $sql="INSERT INTO users (firstName, lastName, username, password)
   VALUES ('$firstname', '$lastname', '$username','$password')";
 
 
-$result = execute_Query($connection, $sql); 
+$result = $this->execute_Query($connection, $sql); 
 
 
- session_start();
-	$_SESSION["firstname"]=$firstname;
-	$_SESSION["lastname"]=$lastname;
-	$_SESSION["username"]=$username;
-	$_SESSION["password"]=$password;
-header("location:loginsuccessful.php");
+// session_start();
+//	$_SESSION["firstname"]=$firstname;
+//	$_SESSION["firstname"]=$lastname;
+//	$_SESSION["firstname"]=$username;
+//	$_SESSION["firstname"]=$password;
+//header("location:loginsuccessful.php");
 
 
 }
@@ -79,7 +85,7 @@ function execute_Query($connection , $query){
 
 
 
-
+}
 
 
 ?>

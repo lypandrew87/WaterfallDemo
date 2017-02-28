@@ -17,7 +17,7 @@ class phpHandlingTest extends TestCase
 
 
 	}
-	function testExecuteQuery(){
+	function testExecuteQuerySuccess(){
 
 
 
@@ -42,12 +42,36 @@ class phpHandlingTest extends TestCase
 
 	}
 
-	function testCreateAccount(){
+	function testExecuteQueryFail(){
+
+
+
 
 		$phpHandling = new phpHandling(); 
-		$query = $phpHandling->createAccount($phpHandling->get_connection(), "John","Reed", "jreed27", "password");
 
-		$sql="Select firstName from users where lastName = 'Reed'";
+
+		$sql="Select Not A Real SQL Statement";
+		$result = $phpHandling->execute_Query(  $phpHandling->get_connection(), $sql); 
+		$expected = False; 
+
+		$this->assertEquals( $expected,$result ); 
+
+
+
+
+
+	}
+
+
+
+
+	function testCreateAccountSuccess(){
+
+		$phpHandling = new phpHandling(); 
+		$randomNumber = rand(); 
+		$query = $phpHandling->createAccount($phpHandling->get_connection(), "John","Reed", "jreed" . $randomNumber, "password");
+
+		$sql="Select firstName from users where username = 'jreed$randomNumber'";
 		$result = $phpHandling->execute_Query(  $phpHandling->get_connection(), $sql); 
 
 		$row = mysqli_fetch_array($result);
@@ -57,11 +81,19 @@ class phpHandlingTest extends TestCase
 
 		$this->assertEquals( $expected, $row[0]); 
 
+}function testCreateAccountFail(){
 
+		$phpHandling = new phpHandling(); 
+		$randomNumber = rand(); 
+		//Username is already in use
+		$result = $phpHandling->createAccount($phpHandling->get_connection(), "John","Reed", "amlyp", "password");
 
+		$expected = False; 
 
+		$this->assertEquals( $expected,$result ); 
+ 
 
-	}
+}
 	function testLoginSuccess(){
 
 		$phpHandling = new phpHandling(); 

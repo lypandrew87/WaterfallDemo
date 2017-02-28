@@ -18,6 +18,7 @@ if(isset($_GET['uError'])){
 
   <link rel="stylesheet" href="css/style.css">
 
+  <div class="form-style-2">
 
 
 <form method="post" action = "phpHandling.php">
@@ -34,5 +35,5 @@ if(isset($_GET['uError'])){
 </form>
 
 
-
+</div>
 

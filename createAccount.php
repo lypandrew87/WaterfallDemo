@@ -16,10 +16,11 @@ if(isset($_GET['uError'])){
 }
 ?>
 
+  <link rel="stylesheet" href="css/style.css">
 
 
 
-<form method="post" action = "addNewAccount.php">
+<form method="post" action = "phpHandling.php">
   First Name:<br>
   <input  type="text" name="firstname" required ><br>
   Last Name:<br>

@@ -2,9 +2,10 @@
 <!DOCTYPE html>
 <html >
 <head>
+  <link rel="stylesheet" href="css/style.css">
+
   <meta charset="UTF-8">
 
-  <?php include("class_lib.php"); ?>
 
   <?php
    session_start(); 
@@ -25,10 +26,16 @@
 
 <p> Welcome: <?php echo $firstName . " " . $lastName; ?></p>
 
+
+
+<form action ="board.php">
+
+<input type ="submit" value = "Project Board"> 
+</form>
+
 <form action ="index.php">
 
 <input type ="submit" value = "Logout"> 
 </form>
-
 </body>
 </html>

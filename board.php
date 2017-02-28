@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 
-	<?php include("class_lib.php"); ?>
+	<?php include("phpHandling.php"); ?>
 
 	<?php
 
@@ -103,7 +103,7 @@
 
 					?>
 
-							<div id="Element01" class="card-panel orange white-text" style="width: 20em; height: 20em;">
+							<div id="Element01" class="card-panel green white-text" style="width: 20em; height: 20em;">
 								<b>Done</b>
 								<hr><?php   echo $row['done']; ?> </hr>
 								<i><span id="i1"></span></i>
@@ -128,3 +128,8 @@
 
 			</body>
 			</html>
+
+			<form action ="index.php">
+
+<input type ="submit" value = "Logout"> 
+</form>

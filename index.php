@@ -30,7 +30,8 @@
   Password:<br>
   <input type="password" name="password"><br><br>
 
-  <?php if(isset($_GET['uError'])){ ?>
+
+  <?php echo "hello"; if(isset($_GET['uError'])){ ?>
 <p  style = "color: red"> Incorrect username or password. </p> <?php } ?>
 
   <input type="submit" value="Submit">
